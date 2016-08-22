@@ -1,6 +1,11 @@
-# y
+# A [cnode](https://cnodejs.org/) webapp Based on vue.js
 
 > A Vue.js project
+
+##install
+```shell
+git clone  https://github.com/shinygang/Vue-cnodejs.git
+```
 
 ## Build Setup
 
