@@ -4,7 +4,7 @@
 
 ##Install
 ```shell
-git clone  https://github.com/shinygang/Vue-cnodejs.git
+git clone  https://github.com/Thstone37/Vue-cnode.git
 ```
 
 ## Build Setup
