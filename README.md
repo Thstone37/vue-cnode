@@ -4,7 +4,7 @@
 
 ##Install
 ```shell
-git clone  https://github.com/Thstone37/Vue-cnode.git
+git clone  https://github.com/Thstone37/vue-cnode.git
 ```
 
 ## Build Setup
