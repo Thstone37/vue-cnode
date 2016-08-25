@@ -55,8 +55,15 @@
 						this.serachKey=JSON.parse(this.serachDataStr);
 						this.loadshow=true;
 					}
-					this.serachKey.tab=query.tab
-					this.getTopics();
+					if(sessionStorage.serachKey&&transition.from.name==="topic"&&sessionStorage.tab==tab){
+                        this.data = JSON.parse(sessionStorage.topics);
+                        this.serachKey = JSON.parse(sessionStorage.serachKey);
+                        this.$nextTick(()=> $(window).scrollTop(sessionStorage.scrollTop));
+					}
+					else{
+						this.serachKey.tab=query.tab
+					    this.getTopics();
+				    }
 					this.showBar=false;
 					$(window).on("scroll",() => {
 						this.getScrollData();
@@ -64,6 +71,16 @@
 				},
 				deactivate(transition){
 					$(window).off("scroll");
+					if(transition.to.name==="topic"){
+						sessionStorage.scrollTop=$(window).scrollTop();
+						sessionStorage.topics=JSON.stringify(this.data);
+						sessionStorage.serachKey=JSON.stringify(this.serachKey);
+						sessionStorage.tab=transition.from.query.tab||"all";
+					}else{
+						sessionStorage.removeItem("topics");
+						sessionStorage.removeItem("serachKey");
+						sessionStorage.removeItem("tab");
+					}
 					transition.next();
 				}
 			},
